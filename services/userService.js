@@ -7,7 +7,7 @@ const getUserService = async (req) => {
     const user = await User.findById(id);
 
     if (!user) {
-      return (userToken = {
+      return (userData = {
         success: false,
         message: 'no user found',
         status: 422,

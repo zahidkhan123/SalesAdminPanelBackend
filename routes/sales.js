@@ -1,8 +1,7 @@
 import express from 'express';
+import { getSalesController } from '../controllers/sales.js';
 const route = express.Router();
 
-route.post('/sales',(req,res) => {
+route.get('/sales', getSalesController);
 
-});
-
-export default route
+export default route;

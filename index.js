@@ -12,6 +12,7 @@ import {
   dataProduct,
   dataProductStat,
   dataTransaction,
+  dataOverallStat,
 } from './data/index.js';
 import User from './models/User.js';
 import Product from './models/product.js';
@@ -19,6 +20,8 @@ import ProductStat from './models/productStat.js';
 import Transaction from './models/Transaction.js';
 import generalRoutes from './routes/general.js';
 import clientRoutes from './routes/client.js';
+import salesRoutes from './routes/sales.js';
+import OverallStats from './models/OverallStats.js';
 // CONFIGURATION
 // dotenv.config()
 const app = express();
@@ -34,14 +37,13 @@ connection.once('open', () => {
   // Product.insertMany(dataProduct);
   // ProductStat.insertMany(dataProductStat);
   // Transaction.insertMany(dataTransaction);
+  // OverallStats.insertMany(dataOverallStat);
 });
 
 app.use('/api/v1/general', generalRoutes);
 app.use('/api/v1/client', clientRoutes);
+app.use('/api/v1/sales', salesRoutes);
 app.use('/api/v1/management', (req, res) => {
-  res.send({ success: true });
-});
-app.use('/api/v1/sales', (req, res) => {
   res.send({ success: true });
 });
 
